@@ -21,53 +21,48 @@ const MusicPlayer = () => {
     };
   }, []);
 
-  // Simple melodic progression using Web Audio API (romantic tune)
-  const melody = [
-    // First phrase
-    { note: 261.63, time: 0 },      // C4
-    { note: 329.63, time: 0.4 },    // E4
-    { note: 392.00, time: 0.8 },    // G4
-    { note: 523.25, time: 1.2 },    // C5
-    { note: 392.00, time: 1.6 },    // G4
-    { note: 349.23, time: 2.0 },    // F4
-    { note: 329.63, time: 2.4 },    // E4
-    { note: 293.66, time: 2.8 },    // D4
-    // Second phrase
-    { note: 261.63, time: 3.2 },    // C4
-    { note: 329.63, time: 3.6 },    // E4
-    { note: 392.00, time: 4.0 },    // G4
-    { note: 523.25, time: 4.4 },    // C5
-    { note: 523.25, time: 4.8 },    // C5
-    { note: 493.88, time: 5.2 },    // B4
-    { note: 440.00, time: 5.6 },    // A4
-    { note: 392.00, time: 6.0 },    // G4
-    // Third phrase
-    { note: 349.23, time: 6.4 },    // F4
-    { note: 440.00, time: 6.8 },    // A4
-    { note: 523.25, time: 7.2 },    // C5
-    { note: 587.33, time: 7.6 },    // D5
-    { note: 523.25, time: 8.0 },    // C5
-    { note: 493.88, time: 8.4 },    // B4
-    { note: 440.00, time: 8.8 },    // A4
-    { note: 392.00, time: 9.2 },    // G4
-    // Final phrase
-    { note: 261.63, time: 9.6 },    // C4
-    { note: 329.63, time: 10.0 },   // E4
-    { note: 392.00, time: 10.4 },   // G4
-    { note: 523.25, time: 10.8 },   // C5
-    { note: 392.00, time: 11.2 },   // G4
-    { note: 523.25, time: 11.6 },   // C5
-    { note: 659.25, time: 12.0 },   // E5
-    { note: 523.25, time: 12.4 },   // C5
-  ];
-
-  const totalDuration = 12.8;
-
   // Use a ref for isPlaying to avoid stale closure issues
   const isPlayingRef = useRef(isPlaying);
   isPlayingRef.current = isPlaying;
 
   const playMelody = useCallback(() => {
+    // Simple melodic progression using Web Audio API (romantic tune)
+    const melody = [
+      { note: 261.63, time: 0 },      // C4
+      { note: 329.63, time: 0.4 },    // E4
+      { note: 392.00, time: 0.8 },    // G4
+      { note: 523.25, time: 1.2 },    // C5
+      { note: 392.00, time: 1.6 },    // G4
+      { note: 349.23, time: 2.0 },    // F4
+      { note: 329.63, time: 2.4 },    // E4
+      { note: 293.66, time: 2.8 },    // D4
+      { note: 261.63, time: 3.2 },    // C4
+      { note: 329.63, time: 3.6 },    // E4
+      { note: 392.00, time: 4.0 },    // G4
+      { note: 523.25, time: 4.4 },    // C5
+      { note: 523.25, time: 4.8 },    // C5
+      { note: 493.88, time: 5.2 },    // B4
+      { note: 440.00, time: 5.6 },    // A4
+      { note: 392.00, time: 6.0 },    // G4
+      { note: 349.23, time: 6.4 },    // F4
+      { note: 440.00, time: 6.8 },    // A4
+      { note: 523.25, time: 7.2 },    // C5
+      { note: 587.33, time: 7.6 },    // D5
+      { note: 523.25, time: 8.0 },    // C5
+      { note: 493.88, time: 8.4 },    // B4
+      { note: 440.00, time: 8.8 },    // A4
+      { note: 392.00, time: 9.2 },    // G4
+      { note: 261.63, time: 9.6 },    // C4
+      { note: 329.63, time: 10.0 },   // E4
+      { note: 392.00, time: 10.4 },   // G4
+      { note: 523.25, time: 10.8 },   // C5
+      { note: 392.00, time: 11.2 },   // G4
+      { note: 523.25, time: 11.6 },   // C5
+      { note: 659.25, time: 12.0 },   // E5
+      { note: 523.25, time: 12.4 },   // C5
+    ];
+    const totalDuration = 12.8;
+
     if (!audioContextRef.current) return;
 
     const ctx = audioContextRef.current;
@@ -86,7 +81,6 @@ const MusicPlayer = () => {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(note, ctx.currentTime + time);
 
-      // Add gentle attack and release
       noteGain.gain.setValueAtTime(0, ctx.currentTime + time);
       noteGain.gain.linearRampToValueAtTime(volume * 0.12, ctx.currentTime + time + 0.05);
       noteGain.gain.setValueAtTime(volume * 0.12, ctx.currentTime + time + 0.3);
@@ -108,13 +102,12 @@ const MusicPlayer = () => {
       if (elapsed >= totalDuration) {
         if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
         setProgress(0);
-        // Check using ref instead of stale closure
         if (isPlayingRef.current) {
           loopTimeoutRef.current = setTimeout(playMelody, 300);
         }
       }
     }, 50);
-  }, [volume, melody, totalDuration]);
+  }, [volume]);
 
   const initAudio = useCallback(() => {
     if (!audioContextRef.current) {
