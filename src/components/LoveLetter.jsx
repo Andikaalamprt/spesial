@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-const letterContent = `Hai Princess Sofi,
+const letterContent = `Hai Amika Cheyza Putri,
 
 Mungkin ini adalah hal paling berani yang pernah kulakukan.
 

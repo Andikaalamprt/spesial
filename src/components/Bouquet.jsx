@@ -75,7 +75,7 @@ const Bouquet = ({ onClose }) => {
       setTimeout(() => setStage(2), 1800),    // Outer flowers appear
       setTimeout(() => setStage(3), 2800),    // Inner flowers + wrapper
       setTimeout(() => setStage(4), 4000),    // Bouquet complete + sway
-      setTimeout(() => setStage(5), 5500),    // "Princess Sofi" title
+      setTimeout(() => setStage(5), 5500),    // "Amika Cheyza Putri" title
       setTimeout(() => setStage(6), 7000),    // Thank you messages
       setTimeout(() => setStage(7), 9500),    // I LOVE YOU
       setTimeout(() => setStage(8), 13000),   // Ending
@@ -326,7 +326,7 @@ const Bouquet = ({ onClose }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bouquet-message-title">Princess Sofi ❤️</div>
+              <div className="bouquet-message-title">Amika Cheyza Putri ❤️</div>
 
               {stage >= 5 && (
                 <motion.div
@@ -369,7 +369,7 @@ const Bouquet = ({ onClose }) => {
                         transition={{ type: 'spring', duration: 1.5, delay: 0.3 }}
                       >
                         ❤️ I LOVE YOU
-                        <br />PRINCESS SOFI ❤️
+                        <br />AMIKA CHEYZA PUTRI ❤️
                       </motion.div>
                     </motion.div>
                   )}

@@ -14,7 +14,7 @@ const Footer = () => {
           Made with <i className="bi bi-heart-fill"></i>
         </div>
         <div className="footer-name">
-          Especially for Princess Sofi ❤️
+          Especially for Amika Cheyza Putri ❤️
         </div>
         <motion.div
           style={{ marginTop: '1.5rem', fontSize: '1.5rem', opacity: 0.5 }}

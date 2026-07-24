@@ -74,7 +74,7 @@ const Hero = () => {
           transition={{ duration: 1.5, delay: 0.3 }}
         >
           <div className="hero-greeting">
-            Hi Princess Sofi ❤️
+            Hi Amika Cheyza Putri ❤️
           </div>
         </motion.div>
 

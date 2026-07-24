@@ -43,7 +43,7 @@ const LoadingScreen = ({ onFinish }) => {
             transition={{ delay: 0.9, duration: 0.8, type: 'spring' }}
           >
             <div className="loading-title" style={{ color: '#ff69b4', fontSize: '3.5rem' }}>
-              Princess Sofi
+              Amika Cheyza Putri
             </div>
           </motion.div>
 

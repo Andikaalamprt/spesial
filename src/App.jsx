@@ -29,7 +29,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    document.title = 'For Princess Sofi ❤️';
+    document.title = 'For Amika Cheyza Putri ❤️';
   }, []);
 
   return (
@@ -63,7 +63,7 @@ const App = () => {
               transition={{ delay: 0.5, duration: 1 }}
               className="music-overlay-title"
             >
-              Welcome Princess Sofi ❤️
+              Welcome Amika Cheyza Putri ❤️
             </motion.div>
 
             <motion.div

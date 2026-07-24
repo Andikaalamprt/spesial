@@ -86,7 +86,7 @@ const Proposal = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 1 }}
           >
-            <div className="proposal-question-top">Princess Sofi...</div>
+            <div className="proposal-question-top">Amika Cheyza Putri...</div>
           </motion.div>
 
           <motion.div
